@@ -1,0 +1,75 @@
+﻿@model ExamenWeb.Models.User;
+
+@{
+    ViewBag.Title = "Авторизация";
+}
+    <head>
+        <link href="~/css/StyleSheetAuthorization.css" rel="stylesheet" type="text/css">
+    </head>
+<body>
+   <main>
+        <form class="form" asp-antiforgery="true" asp-action="Authorization" asp-controller="Home">
+            <div class="validation" asp-validation-summary="ModelOnly"></div>
+            <div class="form__cover"></div>
+            <div class="form__loader">
+                <div class="spinner active">
+                    <svg class="spinner__circular" viewBox="25 25 50 50">
+                        <circle class="spinner__path" cx="50" cy="50" r="20" fill="none" stroke-width="4" stroke-miterlimit="10"></circle>
+                    </svg>
+                </div>
+            </div>
+            <div class="form__content">
+                <h1>Авторизация</h1>
+                <div class="styled-input">
+                    <input type="text" class="styled-input__input" asp-for="PhoneNumber">
+                    <div class="styled-input__placeholder">
+                        <span class="styled-input__placeholder-text">Номер</span>
+                    </div>
+                    <span asp-validation-for="PhoneNumber"></span>
+                    <div class="styled-input__circle"></div>
+                </div>
+                <div class="styled-input">
+                     <input type="password" class="styled-input__input" asp-for="Password">
+                    <div class="styled-input__placeholder">
+                        <span class="styled-input__placeholder-text">Пароль</span>
+                    </div>
+                    <span asp-validation-for="Password"></span>
+                    <div class="styled-input__circle"></div>
+                </div>
+                <input type="submit" class="styled-button"> 
+                <a class="styled-button" asp-controller="Home" asp-action="Register">
+                    <span class="styled-button__real-text-holder">
+                        <span class="styled-button__real-text">Регитсрация</span>
+                        <span class="styled-button__moving-block face">
+                            <span class="styled-button__text-holder">
+                                <span class="styled-button__text">Регитсрация</span>
+                            </span>
+                        </span><span class="styled-button__moving-block back">
+                            <span class="styled-button__text-holder">
+                                <span class="styled-button__text">Регитсрация</span>
+                            </span>
+                        </span>
+                    </span>
+                </a>
+                <a class="styled-button" asp-controller="Home" asp-action="Index">
+                    <span class="styled-button__real-text-holder">
+                        <span class="styled-button__real-text">Главная</span>
+                        <span class="styled-button__moving-block face">
+                            <span class="styled-button__text-holder">
+                                <span class="styled-button__text">Главная</span>
+                            </span>
+                        </span><span class="styled-button__moving-block back">
+                            <span class="styled-button__text-holder">
+                                <span class="styled-button__text">Главная</span>
+                            </span>
+                        </span>
+                    </span>
+                </a>
+            </div>
+
+        </form>
+    </main>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    <script src="/js/Authorization.js"></script>
+</body>

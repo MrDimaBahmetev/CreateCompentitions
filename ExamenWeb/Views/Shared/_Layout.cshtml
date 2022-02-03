@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    
+</head>
+<body>
+    <header>
+        @if (IsSectionDefined("header"))
+        {
+            @RenderSection("header")
+        }
+        else
+        {
+            await Html.RenderPartialAsync("_Header");
+        }
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @if (IsSectionDefined("Body"))
+            {
+                RenderSection("Body");
+            }
+            else
+            {
+                RenderBody();
+            }
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            @if (IsSectionDefined("Footer"))
+            {
+                @RenderSection("Footer")
+            }
+            else
+            {
+            await Html.RenderPartialAsync("_Footer");
+            }
+        </div>
+    </footer>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

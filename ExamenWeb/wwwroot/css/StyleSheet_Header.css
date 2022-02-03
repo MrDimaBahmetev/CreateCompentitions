@@ -1,0 +1,43 @@
+﻿nav {
+    margin: 2% 2%;
+    border: solid;
+    padding: 3% 3%;
+    border-width: thick;
+    border-color: #020122;
+    font-size: 110%;
+    font-family: 'Six Caps', sans-serif;
+    background-color: #020110;
+    box-shadow: 0 0 .2rem #020122, 0 0 .2rem #020122, 0 0 2rem #020122, 0 0 0.8rem #020122, 0 0 2.8rem #020122, inset 0 0 1.3rem #020122;
+}
+
+.LinkToView {
+    text-decoration: none;
+    color: #fff;
+    width: 120px;
+    font-size: 120%;
+    display: inline-block;
+    text-align: center;
+    transition: all .33s linear;
+    -webkit-transition: all .33s linear;
+}
+
+
+.LinkToView:nth-child(1):hover {
+    color: black;
+    box-shadow: 0 0 .2rem #00FFFF, 0 0 .2rem #00FFFF, 0 0 2rem #00FFFF, 0 0 0.8rem #00FFFF, 0 0 2.8rem #00FFFF, inset 0 0 1.3rem #00FFFF;
+}
+
+.LinkToView:nth-child(2):hover {
+    color: #e74c3c;
+    box-shadow: 0 0 .2rem #00FFFF, 0 0 .2rem #00FFFF, 0 0 2rem #00FFFF, 0 0 0.8rem #00FFFF, 0 0 2.8rem #00FFFF, inset 0 0 1.3rem #00FFFF;
+}
+
+.LinkToView:nth-child(3):hover {
+    color: #BF55EC;
+    box-shadow: 0 0 .2rem #00FFFF, 0 0 .2rem #00FFFF, 0 0 2rem #00FFFF, 0 0 0.8rem #00FFFF, 0 0 2.8rem #00FFFF, inset 0 0 1.3rem #00FFFF;
+}
+
+.LinkToView:nth-child(4):hover {
+    color: #f39c12;
+    box-shadow: 0 0 .2rem #00FFFF, 0 0 .2rem #00FFFF, 0 0 2rem #00FFFF, 0 0 0.8rem #00FFFF, 0 0 2.8rem #00FFFF, inset 0 0 1.3rem #00FFFF;
+}

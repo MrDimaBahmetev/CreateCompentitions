@@ -1,0 +1,46 @@
+﻿@using ExamenWeb.TagHelpers
+@using ExamenWeb.Controllers
+
+@{
+ ViewBag.Title = "Главная страницы";
+ Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Body{
+    <head>
+        <link rel="stylesheet" href="~/css/StyleSheetIndex.css" type="text/css"> 
+        <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Oswald'>
+    </head>
+    <body>
+        <div id="tables">
+            <div><p class="text">Участники</p>
+				@if(HomeController.UserProp == null)
+				{
+                    @CreateTable.ShowParticipants(@HomeController.connStr);
+				}
+				else
+				{
+					@CreateTable.ShowParticipants(@HomeController.connStr, HomeController.UserProp);
+				}
+            </div>
+            <div><p class="text">Соревнования</p>
+                @if(HomeController.UserProp == null)
+				{
+                    @CreateTable.ShowCompetitions(@HomeController.connStr);
+				}
+				else
+				{
+					@CreateTable.ShowCompetitions(@HomeController.connStr, HomeController.UserProp);
+				}
+            </div>
+            <div class="container">
+                <h1 class="heading">Участие в соревнованиях</h1>
+                <center>
+                    <a asp-controller="Home" asp-action="ParticipantForm" class="ripple btn">Подать заявку</a>
+                </center>
+            </div>
+        </div>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+        <script  src="js/Index.js"></script>
+    </body>
+}

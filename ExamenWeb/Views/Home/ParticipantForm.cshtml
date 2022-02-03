@@ -1,0 +1,122 @@
+﻿@model ExamenWeb.Models.Participant
+@using ExamenWeb.Controllers
+@using ExamenWeb.TagHelpers
+
+<head>
+    <title>Форма регистрации</title>
+    <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Raleway'>
+    <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
+    <link rel="stylesheet" href="/css/StyleSheetParticipantForm.css">
+    <link href="https://fonts.googleapis.com/css?family=Vibur" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="sign">
+	    <span class="sign__word">Форма</span>
+	    <span class="sign__word">Заполнения</span>
+	    <span class="sign__word">Участника</span>
+	    <span class="sign__word">Соревнований</span>
+    </div>
+<form asp-antiforgery="true" asp-action="ParticipantForm" asp-controller="Home">
+    <div class="validation" asp-validation-summary="ModelOnly"></div>
+    <div class="container">
+        <input type="radio" name="tab" id="participant" checked="checked"/>
+        <div class="pages">
+            <div class="page">
+                <div class="input">
+                    <div class="title"><i class="material-icons">account_box</i>Имя</div>
+                    <input class="text" type="text" asp-for="Name"/><br />
+                    <span asp-validation-for="Name"></span>
+                </div>
+                <div class="input">
+                    <div class="title"><i class="material-icons">account_box</i>Фамилия</div>
+                    <input class="text" type="text" asp-for="SerName"/><br />
+                    <span asp-validation-for="SerName"></span>
+                </div>
+                <div class="input">
+                    <div class="title"><i class="material-icons">account_box</i>Отчество</div>
+                    <input class="text" type="text" asp-for="Patronymic"/><br />
+                    <span asp-validation-for="Patronymic"></span>
+                </div>
+                <div class="input">
+                    <div class="title"><i class="material-icons">account_box</i>Дата рождения</div>
+                    <input class="text" type="date" asp-for="Birth"/><br />
+                    <span asp-validation-for="Birth"></span>
+                </div>
+                <div class="input">
+                    <div class="title"><i class="material-icons">account_box</i>Вес</div>
+                    <input class="text" type="number" asp-for="Weight"/><br />
+                    <span asp-validation-for="Weight"></span>
+                </div>
+                <div class="input">
+                    <div class="title"><i class="material-icons">account_box</i>Страна</div>
+                    <input class="text" type="text" asp-for="Country"/><br />
+                    <span asp-validation-for="Country"></span>
+                </div>
+                <div class="input">
+                    <div class="title"><i class="material-icons">account_box</i>Город</div>
+                    <input class="text" type="text" asp-for="City"/><br />
+                    <span asp-validation-for="City"></span>
+                </div>
+                <div class="input">
+                    <div class="title"><i class="material-icons">account_box</i>Вид спорта</div>
+                    <input class="text" type="text" asp-for="TypeSport"/><br />
+                    <span asp-validation-for="TypeSport"></span>
+                </div>
+                <div class="input">
+                    <div class="title"><i class="material-icons">account_box</i>Лет тренировок</div>
+                    <input class="text" type="number" asp-for="YearsOfTraining"/><br />
+                    <span asp-validation-for="YearsOfTraining"></span>
+                </div>
+                <div class="input">
+                    <div class="title"><i class="material-icons">account_box</i>Количество боев</div>
+                    <input class="text" type="number" asp-for="CountOfFights"/><br />
+                    <span asp-validation-for="CountOfFights"></span>
+                </div>
+                <div class="input">
+                    <div class="title"><i class="material-icons">account_box</i>Побед</div>
+                    <input class="text" type="number" asp-for="Wins"/><br />
+                    <span asp-validation-for="Wins"></span>
+                </div>
+                <div class="input">
+                    <div class="title"><i class="material-icons">account_box</i>Лучший результат</div>
+                    <input class="text" type="text" asp-for="BestResult"/><br />
+                    <span asp-validation-for="BestResult"></span>
+                </div>
+                <div class="input">
+                    <div class="title"><i class="material-icons">account_box</i>Ф.И.О. тренера</div>
+                    <input class="text" type="text" asp-for="FullNameTrainer"/><br />
+                    <span asp-validation-for="FullNameTrainer"></span>
+                </div>
+                <div class="input">
+                    <div class="title"><i class="material-icons">account_box</i>ИИН</div>
+                    <input class="text" type="text" asp-for="YIN"/><br />
+                    <span asp-validation-for="YIN"></span>
+                </div>
+                @*<div class="input">
+                    <div class="title"><i class="material-icons">account_box</i>Дата заполнения</div>
+                    <input class="text" type="date" asp-for=""/>
+                </div>*@
+                <div class="input">
+                    <input type="submit" value="Подать"/>
+                </div>
+            </div>
+        </div>
+        <div class="tabs">
+            <label class="tab" for="participant">
+                <strong class="text">Участник</strong>
+            </label>
+            <a asp-controller="Home" asp-action="Purchase" id="buy"><strong class="text">Организатор</strong></a>
+        </div>
+    </div>
+</form>
+    <div class="sign">
+	    <span class="sign__word">ВИДЫ</span>
+	    <span class="sign__word">СПОРТА</span>
+    </div>
+    @CreateTable.ShowTypesSport(@HomeController.connStr);
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+</body>
